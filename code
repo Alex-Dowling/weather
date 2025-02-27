@@ -1,0 +1,52 @@
+#include <iostream>
+
+#include <cmath>
+
+using namespace std;
+
+double tempf, tempc, windspeed;
+int chose;
+
+
+
+
+
+
+void CtoF()
+{
+    cout<<"Temperature in Celsius"<<endl;
+    cin>>tempc
+    tempf =
+
+}
+
+void windchill()
+{
+    cout<<"Temperature in Fahrenheit"<<endl;
+    cin>>tempf;
+
+    cout<<"Wind speed in mph"<<endl;
+    cin>>windspeed;
+
+    double computedWindchill = 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
+    cout<<computedWindchill<<endl;
+}
+
+int main()
+{
+    cout<<"What would you like to calculate"<<endl<<"1 for Fahrenheit to Celsius"<<endl<<"2 for Celsius to Fahrenheit"<<endl<<"3 for Wind chill"<<endl;
+    cin>>chose;
+
+    if (chose == 2)
+    {
+        CtoF();
+    }
+
+    if (chose == 3)
+    {
+        windchill();
+    }
+
+
+    return 0;
+}
