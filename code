@@ -4,48 +4,63 @@
 
 using namespace std;
 
-double tempf, tempc, windspeed;
-int chose;
+//Defining Integers
+double cloudb, Windchill;
+double tempf, windspeed, dew;
 
-
-
-
-
-
-void CtoF()
+//Defining Functions
+void Cloud()
 {
-    cout<<"Temperature in Celsius"<<endl;
-    cin>>tempc
-    tempf =
+    cloudb = ((tempf - dew) / 4.4) * 1000;
 
 }
 
 void windchill()
 {
-    cout<<"Temperature in Fahrenheit"<<endl;
-    cin>>tempf;
+    Windchill = 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
 
-    cout<<"Wind speed in mph"<<endl;
-    cin>>windspeed;
+}
 
-    double computedWindchill = 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
-    cout<<computedWindchill<<endl;
+void Display()
+{
+    cout<<" Temperature |  "<<tempf<<endl;
+    cout<<"-------------|----------"<<endl;
+    cout<<"  Dew Point  |  "<<dew<<endl;
+    cout<<"-------------|----------"<<endl;
+    cout<<" Wind speed  |  "<<windspeed<<endl;
+    cout<<"-------------|----------"<<endl;
+    cout<<" Wind Chill  |  "<<Windchill<<endl;
+    cout<<"-------------|----------"<<endl;
+    cout<<" Cloud Base  |  "<<cloudb<<endl;
+
 }
 
 int main()
 {
-    cout<<"What would you like to calculate"<<endl<<"1 for Fahrenheit to Celsius"<<endl<<"2 for Celsius to Fahrenheit"<<endl<<"3 for Wind chill"<<endl;
-    cin>>chose;
 
-    if (chose == 2)
-    {
-        CtoF();
-    }
 
-    if (chose == 3)
-    {
-        windchill();
-    }
+    // Table defining use of Program
+    cout<<"___________________________________________________"<<endl;
+    cout<<"|This program calculates Cloud base and wind chill|"<<endl;
+    cout<<"|Please enter temperature in Fahrenheit the dew   |"<<endl;
+    cout<<"|point in Fahrenheit, and wind speed to start     |"<<endl;
+    cout<<"|_________________________________________________|"<<endl;
+
+    cout<<"Temperature in Fahrenheit ";
+    cin>>tempf;
+
+    cout<<endl<<"Dew point ";
+    cin>>dew;
+
+    cout<<endl<<"Wind speed in mph ";
+    cin>>windspeed;
+    cout<<endl<<endl;
+
+    Cloud();
+
+    windchill();
+
+    Display();
 
 
     return 0;
