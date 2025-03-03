@@ -9,6 +9,20 @@ double cloudb, Windchill;
 double tempf, windspeed, dew;
 
 //Defining Functions
+void Input()
+{
+    cout<<endl<<"Temperature in Fahrenheit: ";
+    cin>>tempf;
+
+    cout<<endl<<"Dew point in Fahrenheit: ";
+    cin>>dew;
+
+    cout<<endl<<"Wind speed in mph: ";
+    cin>>windspeed;
+    cout<<endl<<endl;
+
+}
+
 void Cloud()
 {
     cloudb = ((tempf - dew) / 4.4) * 1000;
@@ -23,15 +37,15 @@ void windchill()
 
 void Display()
 {
-    cout<<" Temperature |  "<<tempf<<endl;
-    cout<<"-------------|----------"<<endl;
-    cout<<"  Dew Point  |  "<<dew<<endl;
-    cout<<"-------------|----------"<<endl;
-    cout<<" Wind speed  |  "<<windspeed<<endl;
-    cout<<"-------------|----------"<<endl;
-    cout<<" Wind Chill  |  "<<Windchill<<endl;
-    cout<<"-------------|----------"<<endl;
-    cout<<" Cloud Base  |  "<<cloudb<<endl;
+    cout<<" Temperature |  "<<tempf<<" F"<<endl;
+    cout<<"-------------|-------------"<<endl;
+    cout<<"  Dew Point  |  "<<dew<<" F"<<endl;
+    cout<<"-------------|-------------"<<endl;
+    cout<<" Wind speed  |  "<<windspeed<<" mph"<<endl;
+    cout<<"-------------|-------------"<<endl;
+    cout<<" Wind Chill  |  "<<Windchill<<" F"<<endl;
+    cout<<"-------------|-------------"<<endl;
+    cout<<" Cloud Base  |  "<<cloudb<<" ft"<<endl;
 
 }
 
@@ -40,21 +54,15 @@ int main()
 
 
     // Table defining use of Program
-    cout<<"___________________________________________________"<<endl;
-    cout<<"|This program calculates Cloud base and wind chill|"<<endl;
-    cout<<"|Please enter temperature in Fahrenheit the dew   |"<<endl;
-    cout<<"|point in Fahrenheit, and wind speed to start     |"<<endl;
-    cout<<"|_________________________________________________|"<<endl;
+    cout<<" ___________________________________________________"<<endl;
+    cout<<"|                                                   |"<<endl;
+    cout<<"| This program calculates Cloud base and wind chill |"<<endl;
+    cout<<"| Please enter temperature in Fahrenheit the dew    |"<<endl;
+    cout<<"| point in Fahrenheit, and wind speed to start      |"<<endl;
+    cout<<"|___________________________________________________|"<<endl;
 
-    cout<<"Temperature in Fahrenheit ";
-    cin>>tempf;
 
-    cout<<endl<<"Dew point ";
-    cin>>dew;
-
-    cout<<endl<<"Wind speed in mph ";
-    cin>>windspeed;
-    cout<<endl<<endl;
+    Input();
 
     Cloud();
 
