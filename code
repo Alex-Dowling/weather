@@ -2,26 +2,64 @@
 
 #include <cmath>
 
+#include <limits>
+
 using namespace std;
 
 //Defining Integers
 double cloudb, Windchill;
 double tempf, windspeed, dew;
+void take_input (double& temperature, double& windSpeed, double& dewPoint);
+
+
+
+
+
+
 
 //Defining Functions
 void Input()
 {
+
+
+
+    //Asking for Temperature
     cout<<endl<<"Temperature in Fahrenheit: ";
     cin>>tempf;
+    while(cin.fail())
+            {
+            cout<<"Please enter an number not a character"<<endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cin>>tempf;
+            }
 
+    //Asking for The Dew point
     cout<<endl<<"Dew point in Fahrenheit: ";
     cin>>dew;
+    while(cin.fail())
+            {
+            cout<<"Please enter an number not a character"<<endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cin>>dew;
+            }
 
+    //Asking for Wind speed
     cout<<endl<<"Wind speed in mph: ";
     cin>>windspeed;
+    while(cin.fail())
+            {
+            cout<<"Please enter an number not a character"<<endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cin>>windspeed;
+            }
     cout<<endl<<endl;
-
 }
+
+
+
 
 void Cloud()
 {
@@ -64,6 +102,8 @@ int main()
 
     Input();
 
+
+
     Cloud();
 
     windchill();
@@ -73,3 +113,4 @@ int main()
 
     return 0;
 }
+
