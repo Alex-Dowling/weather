@@ -8,37 +8,19 @@ using namespace std;
 
 
 
-
-
-
-
-
-
-
 //Defining Functions
-
-
-
-
-
-
-
-
-
-
-
-
+double cloudB (double tempf, double dew);
+double WindChill (double tempf, double windspeed);
+void Input (double& tempf, double& windspeed, double& dew);
+void calculate (double tempf, double windspeed, double dew, double& cloudb, double& Windchill);
+void Display (double tempf, double windspeed, double dew, double cloudb, double Windchill);
 
 
 int main()
 {
     //Defining Integers
     double tempf, windspeed, dew;
-    double cloudb (double& tempf, double& dew);
-    double Windchill (double& tempf, double& windspeed);
-    void Input (double& tempf, double& windspeed, double& dew);
-    void calculate (double& tempf, double& windspeed, double& dew);
-    void Display (double& tempf, double& windspeed, double& dew, double& cloudb, double& Windchill);
+    double cloudb, Windchill;
 
     // Table defining use of Program
     cout<<" ___________________________________________________"<<endl;
@@ -48,11 +30,29 @@ int main()
     cout<<"| point in Fahrenheit, and wind speed to start      |"<<endl;
     cout<<"|___________________________________________________|"<<endl;
 
+    Input(tempf, dew, windspeed);
 
-    void Input()
+    calculate(tempf, windspeed, dew, cloudb, Windchill);
+
+    Display(tempf, windspeed, dew, cloudb, Windchill);
+
+
+
+    return 0;
+}
+
+double cloudB (double tempf, double dew)
+{
+    return ((tempf - dew) / 4.4) * 1000;
+}
+
+double WindChill(double tempf, double windspeed)
+{
+   return 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
+}
+
+void Input(double& tempf, double& dew, double& windspeed)
     {
-
-
 
         //Asking for Temperature
         cout<<endl<<"Temperature in Fahrenheit: ";
@@ -89,15 +89,16 @@ int main()
         cout<<endl<<endl;
 }
 
-    void calculate()
+    void calculate(double tempf, double windspeed, double dew, double& cloudb,  double& Windchill)
 {
-        cloudb = ((tempf - dew) / 4.4) * 1000;
+        cloudb = cloudB(tempf, dew);
+        Windchill = WindChill(tempf, windspeed);
 
-        Windchill = 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
+
 
 }
 
-    void Display()
+    void Display(double tempf, double windspeed, double dew, double cloudb,  double Windchill)
 {
         cout<<" Temperature |  "<<tempf<<" F"<<endl;
         cout<<"-------------|-------------"<<endl;
