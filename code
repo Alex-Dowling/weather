@@ -41,6 +41,7 @@ int main()
     return 0;
 }
 
+// Calculations
 double cloudB (double tempf, double dew)
 {
     return ((tempf - dew) / 4.4) * 1000;
@@ -51,10 +52,11 @@ double WindChill(double tempf, double windspeed)
    return 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
 }
 
+//Inputs
 void Input(double& tempf, double& dew, double& windspeed)
     {
 
-        //Asking for Temperature
+        // Asking for Temperature
         cout<<endl<<"Temperature in Fahrenheit: ";
         cin>>tempf;
         while(cin.fail())
@@ -65,7 +67,7 @@ void Input(double& tempf, double& dew, double& windspeed)
                 cin>>tempf;
                 }
 
-        //Asking for The Dew point
+        // Asking for The Dew point
         cout<<endl<<"Dew point in Fahrenheit: ";
         cin>>dew;
         while(cin.fail())
@@ -76,7 +78,7 @@ void Input(double& tempf, double& dew, double& windspeed)
             cin>>dew;
             }
 
-    //Asking for Wind speed
+        // Asking for Wind speed
         cout<<endl<<"Wind speed in mph: ";
         cin>>windspeed;
         while(cin.fail())
@@ -98,6 +100,7 @@ void Input(double& tempf, double& dew, double& windspeed)
 
 }
 
+    //Displaying output
     void Display(double tempf, double windspeed, double dew, double cloudb,  double Windchill)
 {
         cout<<" Temperature |  "<<tempf<<" F"<<endl;
