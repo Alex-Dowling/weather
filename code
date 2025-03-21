@@ -9,11 +9,11 @@ using namespace std;
 
 
 //Defining Functions
-double cloudB (double tempf, double dew);
-double WindChill (double tempf, double windspeed);
+double cloudB (double& tempf, double& dew);
+double WindChill (double& tempf, double& windspeed);
 void Input (double& tempf, double& windspeed, double& dew);
-void calculate (double tempf, double windspeed, double dew, double& cloudb, double& Windchill);
-void Display (double tempf, double windspeed, double dew, double cloudb, double Windchill);
+void calculate (double& tempf, double& windspeed, double& dew, double& cloudb, double& Windchill);
+void Display (double& tempf, double& windspeed, double& dew, double& cloudb, double& Windchill);
 
 
 int main()
@@ -42,12 +42,12 @@ int main()
 }
 
 // Calculations
-double cloudB (double tempf, double dew)
+double cloudB (double& tempf, double& dew)
 {
     return ((tempf - dew) / 4.4) * 1000;
 }
 
-double WindChill(double tempf, double windspeed)
+double WindChill(double& tempf, double& windspeed)
 {
    return 35.74 + ((0.6215 * tempf) - (35.75 * (pow(windspeed, 0.16)))) + (0.4275 * tempf * (pow(windspeed, 0.16)));
 }
@@ -91,7 +91,7 @@ void Input(double& tempf, double& dew, double& windspeed)
         cout<<endl<<endl;
 }
 
-    void calculate(double tempf, double windspeed, double dew, double& cloudb,  double& Windchill)
+    void calculate(double& tempf, double& windspeed, double& dew, double& cloudb,  double& Windchill)
 {
         cloudb = cloudB(tempf, dew);
         Windchill = WindChill(tempf, windspeed);
@@ -101,7 +101,7 @@ void Input(double& tempf, double& dew, double& windspeed)
 }
 
     //Displaying output
-    void Display(double tempf, double windspeed, double dew, double cloudb,  double Windchill)
+    void Display(double& tempf, double& windspeed, double& dew, double& cloudb,  double& Windchill)
 {
         cout<<" Temperature |  "<<tempf<<" F"<<endl;
         cout<<"-------------|-------------"<<endl;
@@ -115,6 +115,3 @@ void Input(double& tempf, double& dew, double& windspeed)
 
 }
 
-
-    return 0;
-}
